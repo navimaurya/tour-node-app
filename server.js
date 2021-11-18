@@ -18,7 +18,9 @@ mongoose
   })
   .then((con) => {
     //console.log(con.connection);
-    // console.log('DB Connected succesfull.......');
+    console.log('DB Connected succesfull.......');
+  }).catch(() => {
+    console.log('DB Connected Failed.......');
   });
 
 // Creating a web server
@@ -26,10 +28,10 @@ const port = process.env.PORT || 5000;
 // const host = 'localhost';
 const server = app.listen(port, 'localhost', (req, res) => {
   console.log('App is running on ' + process.env.NODE_ENV + ' mode');
-  // console.log(`App is running on port ${port} ......`);
+  console.log(`App is running on port ${port} ......`);
 });
 process.on('unhandledRejection', (err) => {
-  // console.log(err.name, err.message);
+  console.log(err.name, err.message);
   // console.log('Unhandled rejection....');
 
   server.close(() => {
@@ -38,7 +40,7 @@ process.on('unhandledRejection', (err) => {
 });
 
 process.on('uncaughtException', (err) => {
-  // console.log(err.name, err.message);
+  console.log(err.name, err.message);
   // console.log('Uncaught Exception....');
 
   server.close(() => {
