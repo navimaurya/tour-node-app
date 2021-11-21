@@ -4,11 +4,11 @@ dotenv.config({ path: './config.env' });
 const app = require('./app');
 
 // Connecting database
-// const DB = process.env.DATABASE_LOCAL;
-const DB = process.env.DATABASE_REMOTE.replace(
-  '<PASSWORD>',
-  process.env.DBPASSWORD
-);
+const DB = process.env.DATABASE_LOCAL;
+// const DB = process.env.DATABASE_REMOTE.replace(
+//   '<PASSWORD>',
+//   process.env.DBPASSWORD
+// );
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
